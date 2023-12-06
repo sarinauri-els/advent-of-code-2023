@@ -18,14 +18,15 @@ public class CubeGame {
         for (String[] game : games) {
             if (isPossible(game)) {
                 partOneAnswer += gameNumber;
-            } else {
             }
             gameNumber++;
         }
 
         System.out.println("Part One Answer: " + partOneAnswer);
 
-        var partTwoAnswer = games.stream().mapToInt(CubeGame::getLowestCubeCounts).sum();
+        var partTwoAnswer = games.stream()
+                .mapToInt(CubeGame::getLowestCubeCounts)
+                .sum();
 
         System.out.println("Part Two Answer: " + partTwoAnswer);
     }
