@@ -10,7 +10,8 @@ public class CubeGame {
 
         var games = data.stream()
                 .map(row -> row.substring(8))
-                .map(row -> row.split(";")).toList();
+                .map(row -> row.split(";"))
+                .toList();
 
         var partOneAnswer = 0;
         var gameNumber = 1;
