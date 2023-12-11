@@ -52,7 +52,6 @@ public class GearRatios {
                 if (containsSpecialChar > 0) {
                     partOneAnswer += Integer.parseInt(number);
                 }
-                System.out.println();
             }
         }
 
