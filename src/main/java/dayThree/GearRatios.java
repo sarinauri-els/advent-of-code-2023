@@ -1,8 +1,6 @@
 package dayThree;
 
 import utilities.FileReader;
-
-import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class GearRatios {
@@ -17,7 +15,7 @@ public class GearRatios {
             var numbers = row.replaceAll("\\D+", ",").split(",");
 
             for (String number : numbers) {
-                var containsSpecialChar = 0;
+                var specialCharacters = 0;
 
                 var indexOfNumber = row.indexOf(number);
                 var numberLength = number.length();
@@ -35,21 +33,21 @@ public class GearRatios {
 
                 if (rowNumber - 1 >= 0) {
                     if (containsSpecialCharacters(data.get(rowNumber - 1), startIndex, endIndex)) {
-                        containsSpecialChar++;
+                        specialCharacters++;
                     }
                 }
 
                 if (containsSpecialCharacters(row, startIndex, endIndex)) {
-                    containsSpecialChar++;
+                    specialCharacters++;
                 }
 
                 if (rowNumber + 1 < data.size()) {
                     if (containsSpecialCharacters(data.get(rowNumber + 1), startIndex, endIndex)) {
-                        containsSpecialChar++;
+                        specialCharacters++;
                     }
                 }
 
-                if (containsSpecialChar > 0) {
+                if (specialCharacters > 0) {
                     partOneAnswer += Integer.parseInt(number);
                 }
             }
@@ -60,9 +58,8 @@ public class GearRatios {
     }
 
     private static boolean containsSpecialCharacters(String row, int startIndex, int endIndex) {
-        System.out.println(row.substring(startIndex, endIndex));
-        Pattern pattern = Pattern.compile("[^a-z0-9.]", Pattern.CASE_INSENSITIVE);
-        Matcher matcher = pattern.matcher(row.substring(startIndex, endIndex));
+        var pattern = Pattern.compile("[^a-z0-9.]", Pattern.CASE_INSENSITIVE);
+        var matcher = pattern.matcher(row.substring(startIndex, endIndex));
         return matcher.find();
     }
 }
