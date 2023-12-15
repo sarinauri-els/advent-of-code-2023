@@ -56,6 +56,8 @@ public class GearRatios {
                 for (int i = startIndex; i < endIndex; i++) {
                     sb.setCharAt(i, '.');
                 }
+
+                row = sb.toString();
             }
         }
 
