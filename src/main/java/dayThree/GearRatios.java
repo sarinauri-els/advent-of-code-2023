@@ -50,11 +50,16 @@ public class GearRatios {
                 if (specialCharacters > 0) {
                     partOneAnswer += Integer.parseInt(number);
                 }
+
+                StringBuilder sb = new StringBuilder(row);
+
+                for (int i = startIndex; i < endIndex; i++) {
+                    sb.setCharAt(i, '.');
+                }
             }
         }
 
         System.out.println("Part One Answer: " + partOneAnswer);
-//        Part One Answer: 540037
     }
 
     private static boolean containsSpecialCharacters(String row, int startIndex, int endIndex) {
